@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,10 +13,12 @@ public class CheatActivity extends AppCompatActivity {
 
     private static final String EXTRA_ANSWER_IS_TRUE =
             "com.bignerdranch.android.geoquiz.answer_is_true";
-    private static final String EXTRA_ANSWER_SHOWN =
+    public static final String EXTRA_ANSWER_SHOWN =
             "com.bignerdranch.android.geoquiz.answer_shown";
+    private static final String KEY_IS_CHEAT = "isCheat";
 
     private boolean mAnswerIsTrue;
+    private boolean mIsCheat;
 
     private TextView mAnswerTextView;
     private Button mShowAnswer;
@@ -59,6 +59,21 @@ public class CheatActivity extends AppCompatActivity {
                 setAnswerShownResult(true);
             }
         });
+        if (savedInstanceState != null
+                && savedInstanceState.getBoolean(KEY_IS_CHEAT)) {
+            if (mAnswerIsTrue) {
+                mAnswerTextView.setText(R.string.true_button);
+            } else {
+                mAnswerTextView.setText(R.string.false_button);
+            }
+            setAnswerShownResult(true);
+            mIsCheat = true;
+        }
+    }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(KEY_IS_CHEAT, mIsCheat);
     }
 }
