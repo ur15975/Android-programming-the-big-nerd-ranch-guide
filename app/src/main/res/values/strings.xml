@@ -1,10 +1,5 @@
 <resources>
-    <string name="app_name">GeoQuiz</string>
-    <string name="question_text">
-        Constantinople is the largest city in Turkey.
-    </string>
-    <string name="true_button">TRUE</string>
-    <string name="false_button">FALSE</string>
-    <string name="correct_toast">Correct!</string>
-    <string name="incorrect_toast">Incorrect!</string>
+    <string name="app_name">CriminalIntent</string>
+    <string name="action_settings">Setting</string>
+    <string name="crime_title_hint">Enter a title for crime.</string>
 </resources>
