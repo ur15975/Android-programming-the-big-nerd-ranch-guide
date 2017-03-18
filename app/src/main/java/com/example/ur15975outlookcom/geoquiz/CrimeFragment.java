@@ -27,12 +27,13 @@ public class CrimeFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mCrime = new Crime();
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_crime, container, false);
+        View view = inflater.inflate(R.layout.fragment_crime_list, container, false);
 
         mTitleField = (EditText) view.findViewById(R.id.crime_title);
         mTitleField.addTextChangedListener(new TextWatcher() {
