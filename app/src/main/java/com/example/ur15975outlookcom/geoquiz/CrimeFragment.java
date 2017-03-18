@@ -7,6 +7,9 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 
 /**
@@ -16,6 +19,8 @@ import android.widget.EditText;
 public class CrimeFragment extends Fragment {
     private Crime mCrime;
     private EditText mTitleField;
+    private Button mDateButton;
+    private CheckBox mSolvedCheckBox;
 
 
     @Override
@@ -46,6 +51,19 @@ public class CrimeFragment extends Fragment {
 
             }
         });
+
+        mDateButton = (Button) view.findViewById(R.id.crime_date);
+        mDateButton.setText(mCrime.getDate().toString());
+        mDateButton.setEnabled(false);//禁用按钮,可以不响应用户单击事件,样式编程灰色
+
+        mSolvedCheckBox = (CheckBox) view.findViewById(R.id.crime_solved);//监控CheckBox是否改变
+        mSolvedCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                mCrime.setSolved(isChecked);//用冲Checked改变mCrime中setSolved状态
+            }
+        });
+
         return view;
     }
 }
