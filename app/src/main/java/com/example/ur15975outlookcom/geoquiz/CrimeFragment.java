@@ -53,7 +53,7 @@ public class CrimeFragment extends Fragment {
         });
 
         mDateButton = (Button) view.findViewById(R.id.crime_date);
-        mDateButton.setText(mCrime.getDate().toString());
+        mDateButton.setText(mCrime.getDate());
         mDateButton.setEnabled(false);//禁用按钮,可以不响应用户单击事件,样式编程灰色
 
         mSolvedCheckBox = (CheckBox) view.findViewById(R.id.crime_solved);//监控CheckBox是否改变
