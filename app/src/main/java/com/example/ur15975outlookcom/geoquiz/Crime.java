@@ -31,8 +31,8 @@ public class Crime {
         mTitle = title;
     }
 
-    public String  getDate() {
-        return (String) DateFormat.format("MMM dd, yyyy h:mmaa", mDate);
+    public Date  getDate() {
+        return mDate;
     }
 
     public void setDate(Date date) {
